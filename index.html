@@ -262,24 +262,12 @@
         this.port.postMessage({type: 'send', data}, [data.buffer]);
       }
     }
-
-    /**
-     * @param {number} code The code of the close event.
-     * @param {string} reason The reason of the close event.
-     */
     close(code, reason) {
       this.port.postMessage({type: 'close', code, reason});
     }
   }
-
-  /**
-   * @param {string} url The url of the websocket.
-   * @param {Object!} protocols The protocols of the websocket.
-   * @return {WebSocket!} The websocket.
-   */
   function createWebSocket(url, protocols) {
-    // This should come from the bootstrap channel, but we want this to
-    // work for the synchronous constructor here.
+   
     if (url.startsWith('wss://generativelanguage.googleapis.com/')) {
       return Reflect.construct(ProxiedWebSocket, [url, protocols]);
     }
@@ -507,7 +495,6 @@
           content += node.textContent;
         }
       }
-
       return '<' + tagName + attrString + '>' + content + '</' + tagName + '>';
     }
 
@@ -686,10 +673,7 @@
 })();
 // # sourceURL=iframe_shim.js
         </script>
-        <base href="https://ai.studio">
-
-
-  
+        <base href="https://rztravellombok.vercel.app/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rz.TravelLombok</title>
@@ -714,7 +698,6 @@
         color: inherit;
       }
 
-      /* Header / Navbar */
       header {
         background-color: #fff;
         padding: 1rem 5%;
@@ -878,6 +861,64 @@
         height: 30px;
         fill: black;
       }
+      .footer-info {
+    background-color: #007a8c;
+    color: white;
+    padding: 3rem 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.footer-box h3 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  border-bottom: 2px solid #00bfa5;
+  display: inline-block;
+  padding-bottom: 0.1rem;
+}
+
+.footer-box p, 
+.footer-box a {
+  color: #f0f0f0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.footer-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-box ul li {
+  margin: 0.5rem 0;
+}
+
+.footer-box ul li a:hover {
+  color: #00ffe0;
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+}
+
+.partners-grid img {
+  background: #fff;
+  border-radius: 6px;
+  padding: 0.3rem;
+  width: 100%;
+  height: 40px;
+  object-fit: contain;
+}
     </style>
   <script src="https://cdn.jsdelivr.net/npm/html2canvas-pro"></script></head>
   <body>
@@ -887,29 +928,24 @@
         <nav>
           <ul>
             <li><a href="/index.html">Beranda</a></li>
-            <li><a href="#destinasi">Destinasi</a></li>
-            <li><a href="#paket">Paket</a></li>
-            <li><a href="#kontak">Kontak</a></li>
+            <li><a href="/destinasi">Destinasi</a></li>
+            <li><a href="/paket">Paket</a></li>
+            <li><a href="/kontak">Kontak</a></li>
           </ul>
         </nav>
       </header>
-
-      <!-- Hero Section -->
       <section class="hero">
         <h1>Jelajahi Keindahan Lombok</h1>
         <p>
           Surga tropis yang tersembunyi. Nikmati pantai pasir putih, pegunungan megah, dan budaya yang kaya bersama kami.
         </p>
-        <a href="#destinasi" class="btn">Mulai Petualangan</a>
+        <a href="/destinasi" class="btn">Mulai Petualangan</a>
       </section>
-
-      <!-- Destinasi Section -->
       <section id="destinasi" class="section">
         <h2 class="section-title">Destinasi Populer</h2>
         <div class="destinations-grid">
-
           <div class="card">
-            <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=3338&auto=format&fit=crop" alt="Gili Trawangan" />
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQLZPu6Aul1am6jriYgNGZhXfGhuUCl3PsSoXC2ibF7xQj5n0gBgxPWHJbojfxKWmAaFM7Msbrx1blMmOC0N99w_ZAoeUeDT4zyA9pVZGeSZSgxAWmxkWqrBY0ubJxf2Qrff4bdTVdgLc/s1600/Gili+Trawangan+3.jpg" />
             <div class="card-content">
               <h3 class="card-title">Gili Trawangan</h3>
               <p class="card-desc">
@@ -917,9 +953,8 @@
               </p>
             </div>
           </div>
-
           <div class="card">
-            <img src="https://images.unsplash.com/photo-1588668214407-6ea966d80651?q=80&w=3000&auto=format&fit=crop" alt="Gunung Rinjani" />
+            <img src="https://phinemo.com/wp-content/uploads/2017/12/gunung-rinjani.jpg" />
             <div class="card-content">
               <h3 class="card-title">Gunung Rinjani</h3>
               <p class="card-desc">
@@ -927,9 +962,8 @@
               </p>
             </div>
           </div>
-
           <div class="card">
-            <img src="https://images.unsplash.com/photo-1621873100063-44177d643669?q=80&w=3387&auto=format&fit=crop" alt="Kuta Mandalika" />
+            <img src="https://zjglidcehtsqqqhbdxyp.supabase.co/storage/v1/object/public/atourin/images/destination/lombok/pantai-kuta-mandalika-profile1645517036.png?x-image-process=image/resize,p_100,limit_1/imageslim" />
             <div class="card-content">
               <h3 class="card-title">Kuta Mandalika</h3>
               <p class="card-desc">
@@ -937,9 +971,8 @@
               </p>
             </div>
           </div>
-
           <div class="card">
-            <img src="https://images.unsplash.com/photo-1555899434-94d1368b7bdb?q=80&w=3000&auto=format&fit=crop" alt="Desa Sade" />
+            <img src="https://travelfoodpedia.com/wp-content/uploads/2024/10/SukuSasakdiDesaSadeLombok-1.webp" />
             <div class="card-content">
               <h3 class="card-title">Desa Sade</h3>
               <p class="card-desc">
@@ -947,9 +980,8 @@
               </p>
             </div>
           </div>
-
           <div class="card">
-            <img src="https://images.unsplash.com/photo-1596423985790-2527cb34f0c8?q=80&w=3000&auto=format&fit=crop" alt="Pantai Pink" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Pantai_Pink_yang_menabjubkan.jpg/960px-Pantai_Pink_yang_menabjubkan.jpg" />
             <div class="card-content">
               <h3 class="card-title">Pantai Pink</h3>
               <p class="card-desc">
@@ -957,9 +989,8 @@
               </p>
             </div>
           </div>
-
           <div class="card">
-            <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?q=80&w=3000&auto=format&fit=crop" alt="Air Terjun Sendang Gile" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Air_Terjun_Sendhang_Gile.JPG/1280px-Air_Terjun_Sendhang_Gile.JPG" />
             <div class="card-content">
               <h3 class="card-title">Air Terjun Sendang Gile</h3>
               <p class="card-desc">
@@ -974,20 +1005,43 @@
           <path d="M19.11 17.205c-.372-0.108-3.144-1.543-3.607-1.728-.461-0.185-0.78-0.27-1.096 0.203-.319 0.474-1.229 1.544-1.511 1.859-.28 0.315-0.564 0.353-0.934 0.171-.371-0.181-1.573-0.58-2.996-1.849-1.107-0.988-1.854-2.208-2.072-2.583-.217-0.374-0.023-0.575 0.163-0.761 0.168-0.167 0.372-0.435 0.559-0.653 0.186-0.218 0.248-0.373 0.372-0.617 0.124-0.246 0.062-0.465-0.031-0.652-.093-0.186-0.869-2.094-1.191-2.868-.31-0.752-0.627-0.65-0.899-0.662-.254-0.011-0.546-0.013-0.838-0.013-.292 0-0.765 0.109-1.166 0.543-.4 0.435-1.53 1.495-1.53 3.647 0 2.152 1.567 4.231 1.785 4.522 0.218 0.291 3.085 4.709 7.474 6.602 2.944 1.269 3.545 1.016 4.167 0.955 0.622-0.060 1.968-0.806 2.248-1.583 0.28-0.777 0.28-1.444 0.194-1.583-.085-0.139-0.311-0.223-0.683-0.409zM15.751 28.809c-2.32 0-4.594-0.625-6.587-1.808l-0.472-0.28-4.896 1.284 1.306-4.773-0.307-0.488c-1.305-2.079-1.994-4.512-1.994-6.995 0-7.18 5.842-13.022 13.022-13.022 3.479 0 6.75 1.355 9.21 3.816 2.459 2.46 3.814 5.731 3.814 9.21 0 7.182-5.842 13.024-13.024 13.024z"></path>
         </svg>
       </a>
-     <footer id="kontak">
-        <h3>Rz.TravelLombok</h3>
-        <p>Hubungi kami untuk rencana perjalanan terbaik Anda.</p>
-        <br />
-        <p>© 2025 Rz.TravelLombok. All rights reserved.</p>
-      </footer>
     </div>
-
+    <section class="footer-info">
+  <div class="footer-grid">
+    <div class="footer-box">
+      <h3>Hubungi Kami</h3>
+      <p><img src="https://img.icons8.com/fluency/24/000000/whatsapp.png"/> WhatsApp<br>05955053407</p>
+      <p><img src="https://img.icons8.com/fluency/24/000000/email-open.png"/> Email<br>
+      <a href="mailto:cs@lombokpersada.com">bahrir081@gmail.com</a></p>
+    </div>
+    <div class="footer-box">
+      <h3>Temukan Kami</h3>
+      <p><img src="https://img.icons8.com/color/24/000000/marker.png"/> 
+      Jl. Raya Kuta, Kec. Pujut, Kab. Lombok Tengah, NTB</p>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d246.37215278129062!2d116.27475341748628!3d-8.883827719368622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcda8356f51e4ab%3A0x86e5b84521b91e7f!2sJl.%20Raya%20Kuta%2C%20Kuta%2C%20Kec.%20Pujut%2C%20Kabupaten%20Lombok%20Tengah%2C%20Nusa%20Tenggara%20Bar.%2C%20Indonesia!5e0!3m2!1sid!2skh!4v1765985062658!5m2!1sid!2skh" 
+      width="350" height="180" style="border-radius:10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    <div class="footer-box">
+      <h3>Payment Partners</h3>
+      <div class="partners-grid">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/2560px-Bank_Central_Asia.svg.png" alt="BCA">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Bank_Mandiri_logo_2016.svg/2560px-Bank_Mandiri_logo_2016.svg.png" alt="Mandiri">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Bank_Negara_Indonesia_logo_%282004%29.svg/2560px-Bank_Negara_Indonesia_logo_%282004%29.svg.png" alt="BNI">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/BRI_2025.svg/2560px-BRI_2025.svg.png" alt="BRI">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="VISA">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="MasterCard">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Logo_Link_Jalin_en.png/2560px-Logo_Link_Jalin_en.png" alt="LinkAja">
+        <img src="https://upload.wikimedia.org/wikipedia/en/e/e8/ATM_Bersama_2016.png" alt="ATM Bersama">
+      </div>
+    </div>
+  </div>
+</section>
     <script type="module" src="/index.tsx"></script>
     <script
       type="module"
       onerror="console.warn('Failed to load the app. Try reloading it.')"
     >
-      import '@/index';
+      import '/index';
     </script>
   </body>
 </html>
