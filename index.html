@@ -1,695 +1,14 @@
-<html lang="id"><head><style>
-        @import url(https://fonts.googleapis.com/css?family=Google+Sans+Text);
-        html {
-          font-family: 'Google Sans Text', 'Google Sans';
-          font-size: 14px;
-          color-scheme: light dark;
-          background: light-dark(white, black);
-          color: light-dark(black, white);
-        }
-        </style>
-        
-        <script type="importmap">
-                {"imports":{"@modelcontextprotocol/sdk/":
-                "https://esm.sh/@modelcontextprotocol/sdk/dist/esm/",
-                "https://esm.sh/@modelcontextprotocol/sdk@^1.11.0/es2022/":
-                "https://esm.sh/@modelcontextprotocol/sdk@^1.11.0/es2022/dist/esm/",
-                "https://esm.sh/@modelcontextprotocol/sdk@^1.11.0/client/index?target=es2022":
-                "https://esm.sh/@modelcontextprotocol/sdk@^1.11.0/dist/esm/client/index?target=es2022",
-                "https://esm.sh/@modelcontextprotocol/sdk@^1.11.0/types?target=es2022":
-                "https://esm.sh/@modelcontextprotocol/sdk@^1.11.0/dist/esm/types?target=es2022",
-                "react/":"https://esm.sh/react@^19.2.3/","react":
-                "https://esm.sh/react@^19.2.3","react-dom/":
-                "https://esm.sh/react-dom@^19.2.3/","@/index":
-                "data:application/javascript;base64,aW1wb3J0IHsganN4IGFzIF9qc3gsIGpzeHMgYXMgX2pzeHMgfSBmcm9tICJyZWFjdC9qc3gtcnVudGltZSI7CmltcG9ydCB7IGNyZWF0ZVJvb3QgfSBmcm9tICdyZWFjdC1kb20vY2xpZW50JzsKY29uc3QgQXBwID0gKCkgPT4gewogICAgcmV0dXJuIChfanN4cygiZGl2IiwgeyBjaGlsZHJlbjogW19qc3hzKCJoZWFkZXIiLCB7IGNoaWxkcmVuOiBbX2pzeCgiZGl2IiwgeyBjbGFzc05hbWU6ICJsb2dvIiwgY2hpbGRyZW46ICJSei5UcmF2ZWxMb21ib2siIH0pLCBfanN4KCJuYXYiLCB7IGNoaWxkcmVuOiBfanN4cygidWwiLCB7IGNoaWxkcmVuOiBbX2pzeCgibGkiLCB7IGNoaWxkcmVuOiBfanN4KCJhIiwgeyBocmVmOiAiIyIsIGNoaWxkcmVuOiAiQmVyYW5kYSIgfSkgfSksIF9qc3goImxpIiwgeyBjaGlsZHJlbjogX2pzeCgiYSIsIHsgaHJlZjogIiNkZXN0aW5hc2kiLCBjaGlsZHJlbjogIkRlc3RpbmFzaSIgfSkgfSksIF9qc3goImxpIiwgeyBjaGlsZHJlbjogX2pzeCgiYSIsIHsgaHJlZjogIiNwYWtldCIsIGNoaWxkcmVuOiAiUGFrZXQiIH0pIH0pLCBfanN4KCJsaSIsIHsgY2hpbGRyZW46IF9qc3goImEiLCB7IGhyZWY6ICIja29udGFrIiwgY2hpbGRyZW46ICJLb250YWsiIH0pIH0pXSB9KSB9KV0gfSksIF9qc3hzKCJzZWN0aW9uIiwgeyBjbGFzc05hbWU6ICJoZXJvIiwgY2hpbGRyZW46IFtfanN4KCJoMSIsIHsgY2hpbGRyZW46ICJKZWxhamFoaSBLZWluZGFoYW4gTG9tYm9rIiB9KSwgX2pzeCgicCIsIHsgY2hpbGRyZW46ICJTdXJnYSB0cm9waXMgeWFuZyB0ZXJzZW1idW55aS4gTmlrbWF0aSBwYW50YWkgcGFzaXIgcHV0aWgsIHBlZ3VudW5nYW4gbWVnYWgsIGRhbiBidWRheWEgeWFuZyBrYXlhIGJlcnNhbWEga2FtaS4iIH0pLCBfanN4KCJhIiwgeyBocmVmOiAiI2Rlc3RpbmFzaSIsIGNsYXNzTmFtZTogImJ0biIsIGNoaWxkcmVuOiAiTXVsYWkgUGV0dWFsYW5nYW4iIH0pXSB9KSwgX2pzeHMoInNlY3Rpb24iLCB7IGlkOiAiZGVzdGluYXNpIiwgY2xhc3NOYW1lOiAic2VjdGlvbiIsIGNoaWxkcmVuOiBbX2pzeCgiaDIiLCB7IGNsYXNzTmFtZTogInNlY3Rpb24tdGl0bGUiLCBjaGlsZHJlbjogIkRlc3RpbmFzaSBQb3B1bGVyIiB9KSwgX2pzeHMoImRpdiIsIHsgY2xhc3NOYW1lOiAiZGVzdGluYXRpb25zLWdyaWQiLCBjaGlsZHJlbjogW19qc3hzKCJkaXYiLCB7IGNsYXNzTmFtZTogImNhcmQiLCBjaGlsZHJlbjogW19qc3goImltZyIsIHsgc3JjOiAiaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1Mzc5OTYxOTQ0NzEtZTY1N2RmOTc1YWI0P3E9ODAmdz0zMzM4JmF1dG89Zm9ybWF0JmZpdD1jcm9wIiwgYWx0OiAiR2lsaSBUcmF3YW5nYW4iIH0pLCBfanN4cygiZGl2IiwgeyBjbGFzc05hbWU6ICJjYXJkLWNvbnRlbnQiLCBjaGlsZHJlbjogW19qc3goImgzIiwgeyBjbGFzc05hbWU6ICJjYXJkLXRpdGxlIiwgY2hpbGRyZW46ICJHaWxpIFRyYXdhbmdhbiIgfSksIF9qc3goInAiLCB7IGNsYXNzTmFtZTogImNhcmQtZGVzYyIsIGNoaWxkcmVuOiAiTmlrbWF0aSBwZXN0YSBwYW50YWksIGRpdmluZywgZGFuIHN1bnNldCB5YW5nIG1lbXVrYXUgZGkgcHVsYXUgYmViYXMga2VuZGFyYWFuIGJlcm1vdG9yIGluaS4iIH0pXSB9KV0gfSksIF9qc3hzKCJkaXYiLCB7IGNsYXNzTmFtZTogImNhcmQiLCBjaGlsZHJlbjogW19qc3goImltZyIsIHsgc3JjOiAiaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1ODg2NjgyMTQ0MDctNmVhOTY2ZDgwNjUxP3E9ODAmdz0zMDAwJmF1dG89Zm9ybWF0JmZpdD1jcm9wIiwgYWx0OiAiR3VudW5nIFJpbmphbmkiIH0pLCBfanN4cygiZGl2IiwgeyBjbGFzc05hbWU6ICJjYXJkLWNvbnRlbnQiLCBjaGlsZHJlbjogW19qc3goImgzIiwgeyBjbGFzc05hbWU6ICJjYXJkLXRpdGxlIiwgY2hpbGRyZW46ICJHdW51bmcgUmluamFuaSIgfSksIF9qc3goInAiLCB7IGNsYXNzTmFtZTogImNhcmQtZGVzYyIsIGNoaWxkcmVuOiAiVGFudGFuZyBkaXJpIEFuZGEgbWVuZGFraSBndW51bmcgYmVyYXBpIHRlcnRpbmdnaSBrZWR1YSBkaSBJbmRvbmVzaWEgZGVuZ2FuIHBlbWFuZGFuZ2FuIGRhbmF1IHNlZ2FyYSBhbmFrLiIgfSldIH0pXSB9KSwgX2pzeHMoImRpdiIsIHsgY2xhc3NOYW1lOiAiY2FyZCIsIGNoaWxkcmVuOiBbX2pzeCgiaW1nIiwgeyBzcmM6ICJodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTYyMTg3MzEwMDA2My00NDE3N2Q2NDM2Njk/cT04MCZ3PTMzODcmYXV0bz1mb3JtYXQmZml0PWNyb3AiLCBhbHQ6ICJNYW5kYWxpa2EiIH0pLCBfanN4cygiZGl2IiwgeyBjbGFzc05hbWU6ICJjYXJkLWNvbnRlbnQiLCBjaGlsZHJlbjogW19qc3goImgzIiwgeyBjbGFzc05hbWU6ICJjYXJkLXRpdGxlIiwgY2hpbGRyZW46ICJLdXRhIE1hbmRhbGlrYSIgfSksIF9qc3goInAiLCB7IGNsYXNzTmFtZTogImNhcmQtZGVzYyIsIGNoaWxkcmVuOiAiS2F3YXNhbiB3aXNhdGEgc3VwZXIgcHJpb3JpdGFzIGRlbmdhbiBzaXJrdWl0IGludGVybmFzaW9uYWwgZGFuIHBhbnRhaSBiZXJwYXNpciBtZXJpY2EgeWFuZyB1bmlrLiIgfSldIH0pXSB9KSwgX2pzeHMoImRpdiIsIHsgY2xhc3NOYW1lOiAiY2FyZCIsIGNoaWxkcmVuOiBbX2pzeCgiaW1nIiwgeyBzcmM6ICJodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTU1NTg5OTQzNC05NGQxMzY4YjdiZGI/cT04MCZ3PTMwMDAmYXV0bz1mb3JtYXQmZml0PWNyb3AiLCBhbHQ6ICJEZXNhIFNhZGUiIH0pLCBfanN4cygiZGl2IiwgeyBjbGFzc05hbWU6ICJjYXJkLWNvbnRlbnQiLCBjaGlsZHJlbjogW19qc3goImgzIiwgeyBjbGFzc05hbWU6ICJjYXJkLXRpdGxlIiwgY2hpbGRyZW46ICJEZXNhIFNhZGUiIH0pLCBfanN4KCJwIiwgeyBjbGFzc05hbWU6ICJjYXJkLWRlc2MiLCBjaGlsZHJlbjogIkRlc2EgYWRhdCBTdWt1IFNhc2FrIHlhbmcgbWVtcGVydGFoYW5rYW4gdHJhZGlzaSwgYXJzaXRla3R1ciBydW1haCBraGFzLCBkYW4ga2VyYWppbmFuIHRlbnVuIHRyYWRpc2lvbmFsLiIgfSldIH0pXSB9KSwgX2pzeHMoImRpdiIsIHsgY2xhc3NOYW1lOiAiY2FyZCIsIGNoaWxkcmVuOiBbX2pzeCgiaW1nIiwgeyBzcmM6ICJodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTU5NjQyMzk4NTc5MC0yNTI3Y2IzNGYwYzg/cT04MCZ3PTMwMDAmYXV0bz1mb3JtYXQmZml0PWNyb3AiLCBhbHQ6ICJQYW50YWkgUGluayIgfSksIF9qc3hzKCJkaXYiLCB7IGNsYXNzTmFtZTogImNhcmQtY29udGVudCIsIGNoaWxkcmVuOiBbX2pzeCgiaDMiLCB7IGNsYXNzTmFtZTogImNhcmQtdGl0bGUiLCBjaGlsZHJlbjogIlBhbnRhaSBQaW5rIiB9KSwgX2pzeCgicCIsIHsgY2xhc3NOYW1lOiAiY2FyZC1kZXNjIiwgY2hpbGRyZW46ICJLZXVuaWthbiBwYW50YWkgZGVuZ2FuIHBhc2lyIGJlcndhcm5hIG1lcmFoIG11ZGEgeWFuZyBsYW5na2EgZGFuIGFpciBsYXV0IHlhbmcgamVybmloIHVudHVrIHNub3JrZWxpbmcuIiB9KV0gfSldIH0pLCBfanN4cygiZGl2IiwgeyBjbGFzc05hbWU6ICJjYXJkIiwgY2hpbGRyZW46IFtfanN4KCJpbWciLCB7IHNyYzogImh0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTE4NTQ4NDE5OTcwLTU4ZTNiNDA3OWFiMj9xPTgwJnc9MzAwMCZhdXRvPWZvcm1hdCZmaXQ9Y3JvcCIsIGFsdDogIkFpciBUZXJqdW4gU2VuZGFuZyBHaWxlIiB9KSwgX2pzeHMoImRpdiIsIHsgY2xhc3NOYW1lOiAiY2FyZC1jb250ZW50IiwgY2hpbGRyZW46IFtfanN4KCJoMyIsIHsgY2xhc3NOYW1lOiAiY2FyZC10aXRsZSIsIGNoaWxkcmVuOiAiQWlyIFRlcmp1biBTZW5kYW5nIEdpbGUiIH0pLCBfanN4KCJwIiwgeyBjbGFzc05hbWU6ICJjYXJkLWRlc2MiLCBjaGlsZHJlbjogIlJhc2FrYW4ga2VzZWdhcmFuIGFpciB0ZXJqdW4gZGkga2FraSBHdW51bmcgUmluamFuaSB5YW5nIGRpa2VsaWxpbmdpIGh1dGFuIGh1amFuIHRyb3BpcyB5YW5nIGFzcmkuIiB9KV0gfSldIH0pXSB9KV0gfSksIF9qc3goImEiLCB7IGhyZWY6ICJodHRwczovL3dhLm1lLzYyODU5NTUwNTM0MDciLCBjbGFzc05hbWU6ICJ3YS1mbG9hdCIsIHRhcmdldDogIl9ibGFuayIsIHJlbDogIm5vb3BlbmVyIG5vcmVmZXJyZXIiLCAiYXJpYS1sYWJlbCI6ICJDaGF0IFdoYXRzQXBwIiwgY2hpbGRyZW46IF9qc3goInN2ZyIsIHsgdmlld0JveDogIjAgMCAzMiAzMiIsIGNsYXNzTmFtZTogIndhLWljb24iLCBjaGlsZHJlbjogX2pzeCgicGF0aCIsIHsgZDogIiBNMTkuMTEgMTcuMjA1Yy0uMzcyLTAuMTA4LTMuMTQ0LTEuNTQzLTMuNjA3LTEuNzI4LS40NjEtMC4xODUtMC43OC0wLjI3LTEuMDk2IDAuMjAzLS4zMTkgMC40NzQtMS4yMjkgMS41NDQtMS41MTEgMS44NTktLjI4IDAuMzE1LTAuNTY0IDAuMzUzLTAuOTM0IDAuMTcxLS4zNzEtMC4xODEtMS41NzMtMC41OC0yLjk5Ni0xLjg0OS0xLjEwNy0wLjk4OC0xLjg1NC0yLjIwOC0yLjA3Mi0yLjU4My0uMjE3LTAuMzc0LTAuMDIzLTAuNTc1IDAuMTYzLTAuNzYxIDAuMTY4LTAuMTY3IDAuMzcyLTAuNDM1IDAuNTU5LTAuNjUzIDAuMTg2LTAuMjE4IDAuMjQ4LTAuMzczIDAuMzcyLTAuNjE3IDAuMTI0LTAuMjQ2IDAuMDYyLTAuNDY1LTAuMDMxLTAuNjUyLS4wOTMtMC4xODYtMC44NjktMi4wOTQtMS4xOTEtMi44NjgtLjMxLTAuNzUyLTAuNjI3LTAuNjUtMC44OTktMC42NjItLjI1NC0wLjAxMS0wLjU0Ni0wLjAxMy0wLjgzOC0wLjAxMy0uMjkyIDAtMC43NjUgMC4xMDktMS4xNjYgMC41NDMtLjQgMC40MzUtMS41MyAxLjQ5NS0xLjUzIDMuNjQ3IDAgMi4xNTIgMS41NjcgNC4yMzEgMS43ODUgNC41MjIgMC4yMTggMC4yOTEgMy4wODUgNC43MDkgNy40NzQgNi42MDIgMi45NDQgMS4yNjkgMy41NDUgMS4wMTYgNC4xNjcgMC45NTUgMC42MjItMC4wNjAgMS45NjgtMC44MDYgMi4yNDgtMS41ODMgMC4yOC0wLjc3NyAwLjI4LTEuNDQ0IDAuMTk0LTEuNTgzLS4wODUtMC4xMzktMC4zMTEtMC4yMjMtMC42ODMtMC40MDl6TTE1Ljc1MSAyOC44MDljLTIuMzIgMC00LjU5NC0wLjYyNS02LjU4Ny0xLjgwOGwtMC40NzItMC4yOC00Ljg5NiAxLjI4NCAxLjMwNi00Ljc3My0wLjMwNy0wLjQ4OGMtMS4zMDUtMi4wNzktMS45OTQtNC41MTItMS45OTQtNi45OTUgMC03LjE4IDUuODQyLTEzLjAyMiAxMy4wMjItMTMuMDIyIDMuNDc5IDAgNi43NSAxLjM1NSA5LjIxIDMuODE2IDIuNDU5IDIuNDYgMy44MTQgNS43MzEgMy44MTQgOS4yMSAwIDcuMTgyLTUuODQyIDEzLjAyNC0xMy4wMjQgMTMuMDI0eiIgfSkgfSkgfSksIF9qc3hzKCJmb290ZXIiLCB7IGlkOiAia29udGFrIiwgY2hpbGRyZW46IFtfanN4KCJoMyIsIHsgY2hpbGRyZW46ICJSei5UcmF2ZWxMb21ib2siIH0pLCBfanN4KCJwIiwgeyBjaGlsZHJlbjogIkh1YnVuZ2kga2FtaSB1bnR1ayByZW5jYW5hIHBlcmphbGFuYW4gdGVyYmFpayBBbmRhLiIgfSksIF9qc3goImJyIiwge30pLCBfanN4KCJwIiwgeyBjaGlsZHJlbjogIlx1MDBBOSAyMDI0IFJ6LlRyYXZlbExvbWJvay4gQWxsIHJpZ2h0cyByZXNlcnZlZC4iIH0pXSB9KV0gfSkpOwp9Owpjb25zdCByb290ID0gY3JlYXRlUm9vdChkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgncm9vdCcpKTsKcm9vdC5yZW5kZXIoX2pzeChBcHAsIHt9KSk7Cg==","@":"data:application/javascript;base64,aW1wb3J0IHsganN4IGFzIF9qc3gsIGpzeHMgYXMgX2pzeHMgfSBmcm9tICJyZWFjdC9qc3gtcnVudGltZSI7CmltcG9ydCB7IGNyZWF0ZVJvb3QgfSBmcm9tICdyZWFjdC1kb20vY2xpZW50JzsKY29uc3QgQXBwID0gKCkgPT4gewogICAgcmV0dXJuIChfanN4cygiZGl2IiwgeyBjaGlsZHJlbjogW19qc3hzKCJoZWFkZXIiLCB7IGNoaWxkcmVuOiBbX2pzeCgiZGl2IiwgeyBjbGFzc05hbWU6ICJsb2dvIiwgY2hpbGRyZW46ICJSei5UcmF2ZWxMb21ib2siIH0pLCBfanN4KCJuYXYiLCB7IGNoaWxkcmVuOiBfanN4cygidWwiLCB7IGNoaWxkcmVuOiBbX2pzeCgibGkiLCB7IGNoaWxkcmVuOiBfanN4KCJhIiwgeyBocmVmOiAiIyIsIGNoaWxkcmVuOiAiQmVyYW5kYSIgfSkgfSksIF9qc3goImxpIiwgeyBjaGlsZHJlbjogX2pzeCgiYSIsIHsgaHJlZjogIiNkZXN0aW5hc2kiLCBjaGlsZHJlbjogIkRlc3RpbmFzaSIgfSkgfSksIF9qc3goImxpIiwgeyBjaGlsZHJlbjogX2pzeCgiYSIsIHsgaHJlZjogIiNwYWtldCIsIGNoaWxkcmVuOiAiUGFrZXQiIH0pIH0pLCBfanN4KCJsaSIsIHsgY2hpbGRyZW46IF9qc3goImEiLCB7IGhyZWY6ICIja29udGFrIiwgY2hpbGRyZW46ICJLb250YWsiIH0pIH0pXSB9KSB9KV0gfSksIF9qc3hzKCJzZWN0aW9uIiwgeyBjbGFzc05hbWU6ICJoZXJvIiwgY2hpbGRyZW46IFtfanN4KCJoMSIsIHsgY2hpbGRyZW46ICJKZWxhamFoaSBLZWluZGFoYW4gTG9tYm9rIiB9KSwgX2pzeCgicCIsIHsgY2hpbGRyZW46ICJTdXJnYSB0cm9waXMgeWFuZyB0ZXJzZW1idW55aS4gTmlrbWF0aSBwYW50YWkgcGFzaXIgcHV0aWgsIHBlZ3VudW5nYW4gbWVnYWgsIGRhbiBidWRheWEgeWFuZyBrYXlhIGJlcnNhbWEga2FtaS4iIH0pLCBfanN4KCJhIiwgeyBocmVmOiAiI2Rlc3RpbmFzaSIsIGNsYXNzTmFtZTogImJ0biIsIGNoaWxkcmVuOiAiTXVsYWkgUGV0dWFsYW5nYW4iIH0pXSB9KSwgX2pzeHMoInNlY3Rpb24iLCB7IGlkOiAiZGVzdGluYXNpIiwgY2xhc3NOYW1lOiAic2VjdGlvbiIsIGNoaWxkcmVuOiBbX2pzeCgiaDIiLCB7IGNsYXNzTmFtZTogInNlY3Rpb24tdGl0bGUiLCBjaGlsZHJlbjogIkRlc3RpbmFzaSBQb3B1bGVyIiB9KSwgX2pzeHMoImRpdiIsIHsgY2xhc3NOYW1lOiAiZGVzdGluYXRpb25zLWdyaWQiLCBjaGlsZHJlbjogW19qc3hzKCJkaXYiLCB7IGNsYXNzTmFtZTogImNhcmQiLCBjaGlsZHJlbjogW19qc3goImltZyIsIHsgc3JjOiAiaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1Mzc5OTYxOTQ0NzEtZTY1N2RmOTc1YWI0P3E9ODAmdz0zMzM4JmF1dG89Zm9ybWF0JmZpdD1jcm9wIiwgYWx0OiAiR2lsaSBUcmF3YW5nYW4iIH0pLCBfanN4cygiZGl2IiwgeyBjbGFzc05hbWU6ICJjYXJkLWNvbnRlbnQiLCBjaGlsZHJlbjogW19qc3goImgzIiwgeyBjbGFzc05hbWU6ICJjYXJkLXRpdGxlIiwgY2hpbGRyZW46ICJHaWxpIFRyYXdhbmdhbiIgfSksIF9qc3goInAiLCB7IGNsYXNzTmFtZTogImNhcmQtZGVzYyIsIGNoaWxkcmVuOiAiTmlrbWF0aSBwZXN0YSBwYW50YWksIGRpdmluZywgZGFuIHN1bnNldCB5YW5nIG1lbXVrYXUgZGkgcHVsYXUgYmViYXMga2VuZGFyYWFuIGJlcm1vdG9yIGluaS4iIH0pXSB9KV0gfSksIF9qc3hzKCJkaXYiLCB7IGNsYXNzTmFtZTogImNhcmQiLCBjaGlsZHJlbjogW19qc3goImltZyIsIHsgc3JjOiAiaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1ODg2NjgyMTQ0MDctNmVhOTY2ZDgwNjUxP3E9ODAmdz0zMDAwJmF1dG89Zm9ybWF0JmZpdD1jcm9wIiwgYWx0OiAiR3VudW5nIFJpbmphbmkiIH0pLCBfanN4cygiZGl2IiwgeyBjbGFzc05hbWU6ICJjYXJkLWNvbnRlbnQiLCBjaGlsZHJlbjogW19qc3goImgzIiwgeyBjbGFzc05hbWU6ICJjYXJkLXRpdGxlIiwgY2hpbGRyZW46ICJHdW51bmcgUmluamFuaSIgfSksIF9qc3goInAiLCB7IGNsYXNzTmFtZTogImNhcmQtZGVzYyIsIGNoaWxkcmVuOiAiVGFudGFuZyBkaXJpIEFuZGEgbWVuZGFraSBndW51bmcgYmVyYXBpIHRlcnRpbmdnaSBrZWR1YSBkaSBJbmRvbmVzaWEgZGVuZ2FuIHBlbWFuZGFuZ2FuIGRhbmF1IHNlZ2FyYSBhbmFrLiIgfSldIH0pXSB9KSwgX2pzeHMoImRpdiIsIHsgY2xhc3NOYW1lOiAiY2FyZCIsIGNoaWxkcmVuOiBbX2pzeCgiaW1nIiwgeyBzcmM6ICJodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTYyMTg3MzEwMDA2My00NDE3N2Q2NDM2Njk/cT04MCZ3PTMzODcmYXV0bz1mb3JtYXQmZml0PWNyb3AiLCBhbHQ6ICJNYW5kYWxpa2EiIH0pLCBfanN4cygiZGl2IiwgeyBjbGFzc05hbWU6ICJjYXJkLWNvbnRlbnQiLCBjaGlsZHJlbjogW19qc3goImgzIiwgeyBjbGFzc05hbWU6ICJjYXJkLXRpdGxlIiwgY2hpbGRyZW46ICJLdXRhIE1hbmRhbGlrYSIgfSksIF9qc3goInAiLCB7IGNsYXNzTmFtZTogImNhcmQtZGVzYyIsIGNoaWxkcmVuOiAiS2F3YXNhbiB3aXNhdGEgc3VwZXIgcHJpb3JpdGFzIGRlbmdhbiBzaXJrdWl0IGludGVybmFzaW9uYWwgZGFuIHBhbnRhaSBiZXJwYXNpciBtZXJpY2EgeWFuZyB1bmlrLiIgfSldIH0pXSB9KSwgX2pzeHMoImRpdiIsIHsgY2xhc3NOYW1lOiAiY2FyZCIsIGNoaWxkcmVuOiBbX2pzeCgiaW1nIiwgeyBzcmM6ICJodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTU1NTg5OTQzNC05NGQxMzY4YjdiZGI/cT04MCZ3PTMwMDAmYXV0bz1mb3JtYXQmZml0PWNyb3AiLCBhbHQ6ICJEZXNhIFNhZGUiIH0pLCBfanN4cygiZGl2IiwgeyBjbGFzc05hbWU6ICJjYXJkLWNvbnRlbnQiLCBjaGlsZHJlbjogW19qc3goImgzIiwgeyBjbGFzc05hbWU6ICJjYXJkLXRpdGxlIiwgY2hpbGRyZW46ICJEZXNhIFNhZGUiIH0pLCBfanN4KCJwIiwgeyBjbGFzc05hbWU6ICJjYXJkLWRlc2MiLCBjaGlsZHJlbjogIkRlc2EgYWRhdCBTdWt1IFNhc2FrIHlhbmcgbWVtcGVydGFoYW5rYW4gdHJhZGlzaSwgYXJzaXRla3R1ciBydW1haCBraGFzLCBkYW4ga2VyYWppbmFuIHRlbnVuIHRyYWRpc2lvbmFsLiIgfSldIH0pXSB9KSwgX2pzeHMoImRpdiIsIHsgY2xhc3NOYW1lOiAiY2FyZCIsIGNoaWxkcmVuOiBbX2pzeCgiaW1nIiwgeyBzcmM6ICJodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTU5NjQyMzk4NTc5MC0yNTI3Y2IzNGYwYzg/cT04MCZ3PTMwMDAmYXV0bz1mb3JtYXQmZml0PWNyb3AiLCBhbHQ6ICJQYW50YWkgUGluayIgfSksIF9qc3hzKCJkaXYiLCB7IGNsYXNzTmFtZTogImNhcmQtY29udGVudCIsIGNoaWxkcmVuOiBbX2pzeCgiaDMiLCB7IGNsYXNzTmFtZTogImNhcmQtdGl0bGUiLCBjaGlsZHJlbjogIlBhbnRhaSBQaW5rIiB9KSwgX2pzeCgicCIsIHsgY2xhc3NOYW1lOiAiY2FyZC1kZXNjIiwgY2hpbGRyZW46ICJLZXVuaWthbiBwYW50YWkgZGVuZ2FuIHBhc2lyIGJlcndhcm5hIG1lcmFoIG11ZGEgeWFuZyBsYW5na2EgZGFuIGFpciBsYXV0IHlhbmcgamVybmloIHVudHVrIHNub3JrZWxpbmcuIiB9KV0gfSldIH0pLCBfanN4cygiZGl2IiwgeyBjbGFzc05hbWU6ICJjYXJkIiwgY2hpbGRyZW46IFtfanN4KCJpbWciLCB7IHNyYzogImh0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTE4NTQ4NDE5OTcwLTU4ZTNiNDA3OWFiMj9xPTgwJnc9MzAwMCZhdXRvPWZvcm1hdCZmaXQ9Y3JvcCIsIGFsdDogIkFpciBUZXJqdW4gU2VuZGFuZyBHaWxlIiB9KSwgX2pzeHMoImRpdiIsIHsgY2xhc3NOYW1lOiAiY2FyZC1jb250ZW50IiwgY2hpbGRyZW46IFtfanN4KCJoMyIsIHsgY2xhc3NOYW1lOiAiY2FyZC10aXRsZSIsIGNoaWxkcmVuOiAiQWlyIFRlcmp1biBTZW5kYW5nIEdpbGUiIH0pLCBfanN4KCJwIiwgeyBjbGFzc05hbWU6ICJjYXJkLWRlc2MiLCBjaGlsZHJlbjogIlJhc2FrYW4ga2VzZWdhcmFuIGFpciB0ZXJqdW4gZGkga2FraSBHdW51bmcgUmluamFuaSB5YW5nIGRpa2VsaWxpbmdpIGh1dGFuIGh1amFuIHRyb3BpcyB5YW5nIGFzcmkuIiB9KV0gfSldIH0pXSB9KV0gfSksIF9qc3goImEiLCB7IGhyZWY6ICJodHRwczovL3dhLm1lLzYyODU5NTUwNTM0MDciLCBjbGFzc05hbWU6ICJ3YS1mbG9hdCIsIHRhcmdldDogIl9ibGFuayIsIHJlbDogIm5vb3BlbmVyIG5vcmVmZXJyZXIiLCAiYXJpYS1sYWJlbCI6ICJDaGF0IFdoYXRzQXBwIiwgY2hpbGRyZW46IF9qc3goInN2ZyIsIHsgdmlld0JveDogIjAgMCAzMiAzMiIsIGNsYXNzTmFtZTogIndhLWljb24iLCBjaGlsZHJlbjogX2pzeCgicGF0aCIsIHsgZDogIiBNMTkuMTEgMTcuMjA1Yy0uMzcyLTAuMTA4LTMuMTQ0LTEuNTQzLTMuNjA3LTEuNzI4LS40NjEtMC4xODUtMC43OC0wLjI3LTEuMDk2IDAuMjAzLS4zMTkgMC40NzQtMS4yMjkgMS41NDQtMS41MTEgMS44NTktLjI4IDAuMzE1LTAuNTY0IDAuMzUzLTAuOTM0IDAuMTcxLS4zNzEtMC4xODEtMS41NzMtMC41OC0yLjk5Ni0xLjg0OS0xLjEwNy0wLjk4OC0xLjg1NC0yLjIwOC0yLjA3Mi0yLjU4My0uMjE3LTAuMzc0LTAuMDIzLTAuNTc1IDAuMTYzLTAuNzYxIDAuMTY4LTAuMTY3IDAuMzcyLTAuNDM1IDAuNTU5LTAuNjUzIDAuMTg2LTAuMjE4IDAuMjQ4LTAuMzczIDAuMzcyLTAuNjE3IDAuMTI0LTAuMjQ2IDAuMDYyLTAuNDY1LTAuMDMxLTAuNjUyLS4wOTMtMC4xODYtMC44NjktMi4wOTQtMS4xOTEtMi44NjgtLjMxLTAuNzUyLTAuNjI3LTAuNjUtMC44OTktMC42NjItLjI1NC0wLjAxMS0wLjU0Ni0wLjAxMy0wLjgzOC0wLjAxMy0uMjkyIDAtMC43NjUgMC4xMDktMS4xNjYgMC41NDMtLjQgMC40MzUtMS41MyAxLjQ5NS0xLjUzIDMuNjQ3IDAgMi4xNTIgMS41NjcgNC4yMzEgMS43ODUgNC41MjIgMC4yMTggMC4yOTEgMy4wODUgNC43MDkgNy40NzQgNi42MDIgMi45NDQgMS4yNjkgMy41NDUgMS4wMTYgNC4xNjcgMC45NTUgMC42MjItMC4wNjAgMS45NjgtMC44MDYgMi4yNDgtMS41ODMgMC4yOC0wLjc3NyAwLjI4LTEuNDQ0IDAuMTk0LTEuNTgzLS4wODUtMC4xMzktMC4zMTEtMC4yMjMtMC42ODMtMC40MDl6TTE1Ljc1MSAyOC44MDljLTIuMzIgMC00LjU5NC0wLjYyNS02LjU4Ny0xLjgwOGwtMC40NzItMC4yOC00Ljg5NiAxLjI4NCAxLjMwNi00Ljc3My0wLjMwNy0wLjQ4OGMtMS4zMDUtMi4wNzktMS45OTQtNC41MTItMS45OTQtNi45OTUgMC03LjE4IDUuODQyLTEzLjAyMiAxMy4wMjItMTMuMDIyIDMuNDc5IDAgNi43NSAxLjM1NSA5LjIxIDMuODE2IDIuNDU5IDIuNDYgMy44MTQgNS43MzEgMy44MTQgOS4yMSAwIDcuMTgyLTUuODQyIDEzLjAyNC0xMy4wMjQgMTMuMDI0eiIgfSkgfSkgfSksIF9qc3hzKCJmb290ZXIiLCB7IGlkOiAia29udGFrIiwgY2hpbGRyZW46IFtfanN4KCJoMyIsIHsgY2hpbGRyZW46ICJSei5UcmF2ZWxMb21ib2siIH0pLCBfanN4KCJwIiwgeyBjaGlsZHJlbjogIkh1YnVuZ2kga2FtaSB1bnR1ayByZW5jYW5hIHBlcmphbGFuYW4gdGVyYmFpayBBbmRhLiIgfSksIF9qc3goImJyIiwge30pLCBfanN4KCJwIiwgeyBjaGlsZHJlbjogIlx1MDBBOSAyMDI0IFJ6LlRyYXZlbExvbWJvay4gQWxsIHJpZ2h0cyByZXNlcnZlZC4iIH0pXSB9KV0gfSkpOwp9Owpjb25zdCByb290ID0gY3JlYXRlUm9vdChkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgncm9vdCcpKTsKcm9vdC5yZW5kZXIoX2pzeChBcHAsIHt9KSk7Cg=="}}</script>
-        <script>
-          window.APPLET_FILES = ["index.tsx","metadata.json","index.html"];
-          </script>
-        <script type="module">
-        (() => {
-  if (window.self === window.top) {
-    // Do not run the shim in the main window, only in iframes.
-    return;
-  }
-
-  window.API_KEY = 'GEMINI_API_KEY';
-  window.GEMINI_API_KEY = 'GEMINI_API_KEY';
-  window.process = window.process || {};
-  window.process.env = window.process.env || {};
-  window.process.env.API_KEY = window.API_KEY;
-  window.process.env.GEMINI_API_KEY = window.GEMINI_API_KEY;
-
-  const bootstrapChannel = new Promise((resolve) => {
-    window.addEventListener('message', (event) => {
-      if (event.origin !== 'https://aistudio.google.com') {
-        return;
-      }
-
-      if (event.data.type === 'bootstrap') {
-        resolve({
-          port: event.ports[0],
-          urlPatterns:
-              event.data.urlPatterns.map((pattern) => new RegExp(pattern)),
-        });
-      }
-    });
-  });
-
-  window.aistudio = window.aistudio || {
-    handleFullscreenEsc: true,
-    getHostUrl: async function() {
-      const hostPort = (await bootstrapChannel).port;
-      return new Promise((resolve) => {
-        const channel = new MessageChannel();
-        hostPort.postMessage(
-            {type: 'get_host_url'},
-            [channel.port2]);
-        const port = channel.port1;
-        port.onmessage = (message) => {
-          resolve(message.data.url);
-        };
-      });
-    },
-    hasSelectedApiKey: async function() {
-      const hostPort = (await bootstrapChannel).port;
-      return new Promise((resolve) => {
-        const channel = new MessageChannel();
-        hostPort.postMessage(
-            {type: 'has_selected_api_key'},
-            [channel.port2]);
-        const port = channel.port1;
-        port.onmessage = (message) => {
-          resolve(message.data);
-        };
-      });
-    },
-    openSelectKey: async function() {
-      const hostPort = (await bootstrapChannel).port;
-      const channel = new MessageChannel();
-      hostPort.postMessage(
-          {type: 'open_select_key'},
-          [channel.port2]);
-    },
-    getModelQuota: async function(model) {
-      const hostPort = (await bootstrapChannel).port;
-      return new Promise((resolve) => {
-        const channel = new MessageChannel();
-        hostPort.postMessage(
-            {type: 'get_model_quota', model},
-            [channel.port2]);
-        const port = channel.port1;
-        port.onmessage = (message) => {
-          resolve(message.data.modelQuota);
-        };
-      });
-    },
-  };
-
-  const nativeFetch = window.fetch;
-
-  /**
-   * @param {string | URL | Request} resource The resource of the fetch request.
-   * @param {RequestInit} options The options of the fetch request.
-   * @return {Promise!} The promise of the fetch request.
-   */
-  async function fetch(resource, options) {
-    const config = await bootstrapChannel;
-
-    const request = resource instanceof Request ?
-      resource.clone() :
-      new Request(resource, options);
-
-    if (!config.urlPatterns.some((pattern) => request.url.match(pattern))) {
-      return nativeFetch(resource, options);
-    }
-    const hostPort = config.port;
-
-    const channel = new MessageChannel();
-    const port = channel.port1;
-    let bodyBytes;
-    const transfer = [channel.port2];
-    const parts = [];
-    const buffer = await request.arrayBuffer();
-    if (buffer.byteLength) {
-      bodyBytes = buffer;
-      transfer.push(bodyBytes);
-    }
-    hostPort.postMessage(
-        {
-          type: 'fetch',
-          url: request.url,
-          method: request.method,
-          headers: [...request.headers.entries()],
-          body: bodyBytes,
-        },
-        transfer);
-
-    let streamController;
-    const body = new ReadableStream({
-      start(controller) {
-        streamController = controller;
-      },
-    });
-    let resolveReceive;
-    const receivePromise = new Promise((resolve) => {
-      resolveReceive = resolve;
-    });
-    port.onmessage = (message) => {
-      switch (message.data.type) {
-        case 'response':
-          resolveReceive(new Response(body, {
-            status: message.data.status,
-            statusText: message.data.statusText,
-            headers: new Headers(message.data.headers),
-          }));
-          break;
-        case 'body':
-          streamController.enqueue(message.data.data);
-          break;
-        case 'body_done':
-          streamController.close();
-          break;
-      }
-    };
-    return receivePromise;
-  }
-
-  Object.defineProperty(window, 'fetch', {
-    get: function() {
-      return fetch;
-    },
-  });
-
-  // See details in: https://github.com/angular/angular/issues/63064.
-  function patchHistoryStateFunctionForAngular(originalFn, baseHref) {
-    return (state, unused, url) => {
-      if (typeof url === 'string' && !url.startsWith('blob:')) {
-        url = baseHref + url;
-      }
-      return originalFn.apply(window.history, [state, unused, url]);
-    };
-  }
-
-  if (false) {
-    const baseHref = window.location.href;
-    window.history.replaceState = patchHistoryStateFunctionForAngular(window.history.replaceState, baseHref);
-    window.history.pushState = patchHistoryStateFunctionForAngular(window.history.pushState, baseHref);
-  }
-
-  const originalWebSocket = window.WebSocket;
-  class ProxiedWebSocket extends EventTarget {
-    /**
-     * @param {string} url The url of the websocket.
-     * @param {Object!} protocols The protocols of the websocket.
-     */
-    constructor(url, protocols) {
-      super();
-      this.url = url;
-      this.protocols = protocols;
-
-      this.open();
-    }
-
-    /** Opens the websocket. */
-    async open() {
-      const hostPort = (await bootstrapChannel).port;
-      const channel = new MessageChannel();
-      hostPort.postMessage(
-          {type: 'websocket_open', url: this.url, protocols: this.protocols},
-          [channel.port2]);
-      this.port = channel.port1;
-      this.port.onmessage = (message) => {
-        if (message.data.type === 'close') {
-          const event = new CloseEvent('close', {
-            code: message.data.code,
-            reason: message.data.reason,
-            wasClean: message.data.wasClean,
-          });
-          if (this.onclose) {
-            this.onclose(event);
-          }
-          this.dispatchEvent(event);
-          return;
-        } else if (message.data.type === 'open') {
-          const event = new Event('open');
-          if (this.onopen) {
-            this.onopen(event);
-          }
-          this.dispatchEvent(event);
-          return;
-        } else if (message.data.type === 'message') {
-          let data = message.data.data;
-          if (message.data.messageType === 'text' || message.data.messageType === 'message') {
-            data = new TextDecoder().decode(data);
-          }
-          const event = new MessageEvent('message', {
-            data,
-            type: message.data.messageType,
-          });
-          if (this.onmessage) {
-            this.onmessage(event);
-          }
-          this.dispatchEvent(event);
-          return;
-        } else if (message.data.type === 'error') {
-          const event = new ErrorEvent('error', {
-            message: message.data.message,
-          });
-          if (this.onerror) {
-            this.onerror(event);
-          }
-          this.dispatchEvent(event);
-          return;
-        }
-        console.error('received unknown message in frame', event.data);
-      };
-    }
-    /**
-     * @param {string|ArrayBuffer!} data The data to send.
-     */
-    send(data) {
-      if (typeof data === 'string') {
-        this.port.postMessage({type: 'send', data});
-      } else {
-        this.port.postMessage({type: 'send', data}, [data.buffer]);
-      }
-    }
-    close(code, reason) {
-      this.port.postMessage({type: 'close', code, reason});
-    }
-  }
-  function createWebSocket(url, protocols) {
-   
-    if (url.startsWith('wss://generativelanguage.googleapis.com/')) {
-      return Reflect.construct(ProxiedWebSocket, [url, protocols]);
-    }
-    return Reflect.construct(originalWebSocket, [url, protocols]);
-  }
-
-  Object.defineProperty(window, 'WebSocket', {
-    get: function() {
-      return createWebSocket;
-    },
-  });
-
-  async function instrumentErrorReporting() {
-    const errors = [];
-    let hostPort;
-
-    function reportError(message) {
-      if (!hostPort) {
-        errors.push(message);
-      } else {
-        hostPort.postMessage({type: 'error', message: message}, message);
-      }
-    }
-
-    function serialize(args) {
-      return args.map((a) => {
-        if (a instanceof Error || a instanceof ErrorEvent) {
-          return a.message;
-        }
-        if(a instanceof CloseEvent) {
-          return {code: a.code, reason: a.reason, wasClean: a.wasClean};
-        }
-        if( a instanceof Map) {
-          return JSON.parse(JSON.stringify([...a.entries()]));
-        }
-        if( a instanceof Set) {
-          return JSON.parse(JSON.stringify([...a.values()]));
-        }
-        if (a instanceof Object) {
-          return JSON.parse(JSON.stringify(a));
-        }
-        return a;
-      });
-    }
-
-    const originalConsole = window.console;
-    const originalConsoleLog = window.console.log;
-    const originalConsoleError = window.console.error;
-    const originalConsoleWarn = window.console.warn;
-    const originalConsoleDebug = window.console.debug;
-    window.console = {
-      ...originalConsole,
-      log: (message, ...args) => {
-        originalConsoleLog.apply(window.console, [message, ...args]);
-        const combined = serialize([message, ...args]);
-        reportError({type: 'console_log', message: combined });
-      },
-      debug: (message, ...args) => {
-        originalConsoleDebug.apply(window.console, [message, ...args]);
-        const combined = serialize([message, ...args]);
-        reportError({type: 'console_debug', message: combined });
-      },
-      error: (message, ...args) => {
-        originalConsoleError.apply(window.console, [message, ...args]);
-        const combined = serialize([message, ...args]);
-        reportError({type: 'console_error', message: combined });
-      },
-      warn: (message, ...args) => {
-        originalConsoleWarn.apply(window.console, [message, ...args]);
-        const combined = serialize([message, ...args]);
-        reportError({type: 'console_warn', message: combined });
-      },
-    };
-
-    window.onerror = (message, source, lineno, colno, error) => {
-      reportError({type: 'error', message: serialize([message]), source, lineno, colno, error});
-    };
-
-    window.onunhandledrejection = (event) => {
-      reportError({type: 'unhandledrejection', message: serialize([event.reason])});
-    };
-
-    window.alert = (message) => {
-      reportError({type: 'alert', message: serialize([message]) });
-    };
-
-    hostPort = (await bootstrapChannel).port;
-    for(const error of errors) {
-      hostPort.postMessage({type: 'error', message: error});
-    }
-  }
-
-  const availableFiles = new Set(window.APPLET_FILES || []);
-
-  instrumentErrorReporting();
-
-  if (false) {
-    const notifyLocationChange = async () => {
-      const hostPort = (await bootstrapChannel).port;
-      hostPort.postMessage({type: 'locationchange', href: location.href});
-    };
-
-    // Send initial state on load.
-    notifyLocationChange();
-
-    const originalPushState = history.pushState;
-    history.pushState = (...args) => {
-      originalPushState.apply(history, args);
-      notifyLocationChange();
-    };
-
-    const originalReplaceState = history.replaceState;
-    history.replaceState = (...args) => {
-      originalReplaceState.apply(history, args);
-      notifyLocationChange();
-    };
-    window.addEventListener('popstate', (e) => {
-      notifyLocationChange();
-    });
-  }
-
-  window.addEventListener('hashchange', async (e) =>{
-    const config = await bootstrapChannel;
-    const hostPort = config.port;
-    hostPort.postMessage({type: 'hashchange', hash: window.location.hash});
-    if (false) {
-      hostPort.postMessage({
-        type: 'locationchange',
-        href: location.href,
-      });
-    }
-  });
-
-  if (true) {
-    const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/html2canvas-pro';
-    script.onload = () => {
-      window.addEventListener('message', async (event) => {
-        if (event.data?.type === 'capture-screenshot') {
-          try {
-            const canvas = await html2canvas(document.documentElement, {
-              logging: false,
-              useCORS: true,
-              backgroundColor: null,
-              scale: 1,
-            });
-            const hostPort = (await bootstrapChannel).port;
-            hostPort.postMessage(
-              {
-                type: 'screenshot-result',
-                dataUrl: canvas.toDataURL('image/png'),
-                requestId: event.data.requestId,
-                scrollX: document.body.scrollLeft,
-                scrollY: document.body.scrollTop,
-              },
-            );
-          } catch (e) {
-            const hostPort = (await bootstrapChannel).port;
-            hostPort.postMessage(
-              {
-                type: 'screenshot-error',
-                error: e.message,
-                requestId: event.data.requestId,
-              });
-          }
-        }
-      });
-    };
-    document.head.appendChild(script);
-  }
-
-  if (false) {
-    const MAX_ANCESTOR_LEVEL = 3;
-    const MAX_DESCENDANT_LEVEL = 3;
-
-    function getElementSelector(el) {
-      if (!el || el.nodeType !== 1) {
-        return '';
-      }
-      const parts = [];
-      while(el && el.nodeType === 1 && el.tagName.toLowerCase() !== 'body') {
-        let part = el.tagName.toLowerCase();
-        if (el.id) {
-          part += '#' + CSS.escape(el.id);
-        }
-
-        const parent = el.parentElement;
-        if (parent) {
-          let nth = 1;
-          let prev = el.previousElementSibling;
-          while(prev) {
-            if (prev.tagName === el.tagName) {
-              nth++;
-            }
-            prev = prev.previousElementSibling;
-          }
-          part += ':nth-of-type(' + nth + ')';
-        }
-
-        parts.unshift(part);
-        el = el.parentElement;
-      }
-      return parts.join(' > ');
-    }
-
-    function getDomTreeAsString(element, depth, maxDepth) {
-      if (!element || element.nodeType !== 1 || depth > maxDepth) {
-        return '';
-      }
-      const tagName = element.tagName.toLowerCase();
-      let attrs = [];
-      if (element.id) {
-        attrs.push('id="' + element.id + '"');
-      }
-      if (element.classList.length > 0) {
-        attrs.push('class="' + element.classList.value + '"');
-      }
-      const attrString = attrs.length > 0 ? ' ' + attrs.join(' ') : '';
-
-      let content = '';
-      for (const node of element.childNodes) {
-        if (node.nodeType === 1) { // Element node
-          content += getDomTreeAsString(node, depth + 1, maxDepth);
-        } else if (node.nodeType === 3) { // Text node
-          content += node.textContent;
-        }
-      }
-      return '<' + tagName + attrString + '>' + content + '</' + tagName + '>';
-    }
-
-    const style = document.createElement('style');
-    style.textContent =
-      '.aistudio-focus-mode-highlight { box-shadow: inset 0 0 0 0.5px white, inset 0 0 0 1.5px #87a9ff !important; position: relative !important; }' +
-      '#aistudio-focus-mode-tag { position: absolute; display: none; background: #87a9ff; border-radius: 4px; border: 0.5px solid white; z-index: 10000; text-transform: lowercase; padding: 2px 4px; color: #32302c; font-family: Inter, sans-serif; font-size: 12px; font-style: normal; font-weight: 400; line-height: 16px; pointer-events: none; }';
-    document.head.appendChild(style);
-
-    let highlightedElement = null;
-    let focusTag = null;
-    let resizeObserver = null;
-    let iframeLoaded = false;
-
-    function positionFocusTag() {
-      if (!highlightedElement || !focusTag) return;
-      requestAnimationFrame(() => {
-        focusTag.style.display = 'inline-flex';
-        const rect = highlightedElement.getBoundingClientRect();
-        focusTag.style.top =
-          rect.top + window.scrollY - focusTag.offsetHeight - 5 + 'px';
-        focusTag.style.left = rect.left + window.scrollX + 'px';
-      });
-    }
-
-    if (window.ResizeObserver) {
-      resizeObserver = new ResizeObserver(() => {
-        positionFocusTag();
-      });
-    }
-
-    function highlight(element) {
-      if (!iframeLoaded) return; // Do not highlight if iframe is not loaded
-      if (!focusTag) {
-        focusTag = document.createElement('div');
-        focusTag.id = 'aistudio-focus-mode-tag';
-        document.body.appendChild(focusTag);
-      }
-
-      const hadHighlightedElement = !!highlightedElement;
-      if (highlightedElement) {
-        highlightedElement.classList.remove('aistudio-focus-mode-highlight');
-        highlightedElement.removeAttribute('data-aistudio-tag-name');
-        if (resizeObserver) {
-          resizeObserver.unobserve(highlightedElement);
-        }
-      }
-      focusTag.style.display = 'none';
-      highlightedElement = element;
-      const hasHighlightedElement = !!highlightedElement;
-
-      if (!hadHighlightedElement && hasHighlightedElement) {
-        window.addEventListener('resize', positionFocusTag);
-        window.addEventListener('scroll', positionFocusTag, true);
-      } else if (hadHighlightedElement && !hasHighlightedElement) {
-        window.removeEventListener('resize', positionFocusTag);
-        window.removeEventListener('scroll', positionFocusTag, true);
-      }
-
-      if (highlightedElement) {
-        highlightedElement.setAttribute(
-          'data-aistudio-tag-name',
-          highlightedElement.tagName,
-        );
-        highlightedElement.classList.add('aistudio-focus-mode-highlight');
-        focusTag.textContent = highlightedElement.tagName.toLowerCase();
-        positionFocusTag();
-        if (resizeObserver) {
-          resizeObserver.observe(highlightedElement);
-        }
-      }
-    }
-
-    window.addEventListener('load', () => {
-      iframeLoaded = true;
-    });
-
-    window.addEventListener('message', async (event) => {
-      if (event.data?.type === 'highlight-element-at-point') {
-        try {
-          const element = document.elementFromPoint(
-            event.data.x,
-            event.data.y,
-          );
-          highlight(element);
-        } catch (e) {
-          highlight(null);
-        }
-      } else if (event.data?.type === 'highlight-element-by-selector') {
-        try {
-          const selector = event.data.selector;
-          if (selector) {
-            const element = document.querySelector(selector);
-            highlight(element);
-          } else {
-            highlight(null);
-          }
-        } catch (e) {
-          highlight(null);
-        }
-      } else if (event.data?.type === 'get-element-at-point') {
-        try {
-          const element = document.elementFromPoint(
-            event.data.x,
-            event.data.y,
-          );
-          const hostPort = (await bootstrapChannel).port;
-          if (!element) {
-            hostPort.postMessage({
-              type: 'element-at-point-error',
-              error: 'No element found at point',
-              requestId: event.data.requestId,
-            });
-            return;
-          }
-          const selector = getElementSelector(element);
-
-          let levelsUp = 0;
-          let root = element;
-          while(levelsUp < MAX_ANCESTOR_LEVEL && root.parentElement && root.parentElement.tagName.toLowerCase() !== 'html') {
-            root = root.parentElement;
-            levelsUp++;
-          }
-          const domString = getDomTreeAsString(root, 0, levelsUp + MAX_DESCENDANT_LEVEL);
-
-          const styles = window.getComputedStyle(element);
-          const css = {};
-          for (let i = 0; i < styles.length; i++) {
-            const key = styles[i];
-            css[key] = styles.getPropertyValue(key);
-          }
-          hostPort.postMessage({
-            type: 'element-at-point-result',
-            element: {
-              selector: selector,
-              domString: domString,
-              css: css,
-              x: event.data.x,
-              y: event.data.y,
-            },
-            requestId: event.data.requestId,
-          });
-        } catch (e) {
-          const hostPort = (await bootstrapChannel).port;
-          hostPort.postMessage({
-            type: 'element-at-point-error',
-            error: e.message,
-            requestId: event.data.requestId,
-          });
-        }
-      } else if (event.data?.type === 'change-element-style') {
-        try {
-          const selector = event.data.selector;
-          if (selector) {
-            const element = document.querySelector(selector);
-            if (element) {
-              element.style.setProperty(
-                event.data.property,
-                event.data.value,
-                'important',
-              );
-              positionFocusTag();
-            }
-          }
-        } catch (e) {}
-      }
-    });
-  }
-
-  window.addEventListener('keydown', async (event) => {
-    if (event.key === 'Escape' && window.aistudio?.handleFullscreenEsc) {
-      const hostPort = (await bootstrapChannel).port;
-      hostPort.postMessage({type: 'exit-fullscreen'});
-    }
-  });
-})();
-// # sourceURL=iframe_shim.js
-        </script>
-        <base href="https://rztravellombok.vercel.app/">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rz.TravelLombok</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
       /* Reset & Dasar */
       * {
@@ -697,9 +16,9 @@
         padding: 0;
         box-sizing: border-box;
       }
-      
+
       body {
-        font-family: 'Poppins', sans-serif;
+        font-family: "Poppins", sans-serif;
         color: #333;
         line-height: 1.6;
         background-color: #f9f9f9;
@@ -716,7 +35,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         position: sticky;
         top: 0;
         z-index: 1000;
@@ -725,7 +44,7 @@
       .logo {
         font-size: 1.5rem;
         font-weight: 700;
-        color: #008080; /* Teal Lombok */
+        color: #008080;
       }
 
       nav ul {
@@ -743,39 +62,77 @@
         color: #008080;
       }
 
-      /* Hero Section */
-     .hero { 
-       background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/Lombok NTB.mp4'); 
-       background-size: cover; 
-       background-position: center; 
-       height: 80vh; 
-       display: flex; 
-       flex-direction: column;  
-       justify-content: center; 
-       align-items: center; 
-       text-align: center; 
-             color: white; 
-             padding: 0 1rem; } 
-            
-            .hero h1 { 
-        font-size: 3rem; 
-        margin-bottom: 1rem; 
-                    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); } 
-            
-            .hero p { 
-        font-size: 1.2rem; 
-                    margin-bottom: 2rem; 
-                    max-width: 600px; } 
-            .btn { 
-                    background-color: #008080; 
-                    color: white; 
-                    padding: 0.8rem 2rem; 
-                    border-radius: 50px; 
-                    font-weight: 600; 
-                    transition: background 0.3s; } 
-            .btn:hover { 
-                    background-color: #006666; }
-      /* Destinasi Section */
+      /* ===========================
+         HERO DENGAN VIDEO BACKGROUND
+         =========================== */
+      .hero {
+        position: relative;
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+        overflow: hidden;
+      }
+
+      .bg-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -2;
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          rgba(0, 0, 0, 0.3),
+          rgba(0, 0, 0, 0.3)
+        );
+        z-index: -1;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        padding: 0 1rem;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        max-width: 600px;
+      }
+
+      .btn {
+        background-color: #008080;
+        color: white;
+        padding: 0.8rem 2rem;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: background 0.3s;
+      }
+
+      .btn:hover {
+        background-color: #006666;
+      }
+
+      /* ===========================
+         SECTION DESTINASI
+         =========================== */
       .section {
         padding: 4rem 5%;
       }
@@ -797,7 +154,7 @@
         background: white;
         border-radius: 10px;
         overflow: hidden;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s;
       }
 
@@ -827,7 +184,9 @@
         margin-bottom: 1rem;
       }
 
-      /* Footer */
+      /* ===========================
+         FOOTER
+         =========================== */
       footer {
         background-color: #222;
         color: white;
@@ -836,7 +195,9 @@
         margin-top: auto;
       }
 
-      /* Floating WhatsApp Button */
+      /* ===========================
+         FLOATING WHATSAPP BUTTON
+         =========================== */
       .wa-float {
         position: fixed;
         width: 60px;
@@ -844,7 +205,7 @@
         bottom: 40px;
         right: 40px;
         background-color: #25d366;
-        color: #FFF;
+        color: #fff;
         border-radius: 50%;
         text-align: center;
         box-shadow: 2px 2px 3px #999;
@@ -856,7 +217,7 @@
       }
 
       .wa-float:hover {
-        background-color: #128C7E;
+        background-color: #128c7e;
         transform: scale(1.1);
       }
 
@@ -865,162 +226,178 @@
         height: 30px;
         fill: black;
       }
+
+      /* ===========================
+         FOOTER INFO
+         =========================== */
       .footer-info {
-    background-color: #007a8c;
-    color: white;
-    padding: 3rem 2%;
-    display: inherit;
-    flex-direction: row;
-}
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
-  width: 100%;
-  max-width: 1200px;
-}
+        background-color: #007a8c;
+        color: white;
+        padding: 3rem 2%;
+        display: flex;
+        justify-content: center;
+      }
 
-.footer-box h3 {
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
-  border-bottom: 2px solid #00bfa5;
-  display: inline-block;
-  padding-bottom: 0.1rem;
-}
+      .footer-box {
+        max-width: 500px;
+      }
 
-.footer-box p, 
-.footer-box a {
-  color: #f0f0f0;
-  font-size: 15px;
-  line-height: 1.6;
-}
+      .footer-box h3 {
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+        border-bottom: 2px solid #00bfa5;
+        display: inline-block;
+        padding-bottom: 0.1rem;
+      }
 
-.footer-box ul {
-  list-style: none;
-  padding: 0;
-}
+      .footer-box p {
+        color: #f0f0f0;
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
 
-.footer-box ul li {
-  margin: 0.5rem 0;
-}
-
-.footer-box ul li a:hover {
-  color: #00ffe0;
-}
-
-.partners-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.8rem;
-}
-
-.partners-grid img {
-  background: #fff;
-  border-radius: 6px;
-  padding: 0.3rem;
-  width: 100%;
-  height: 40px;
-  object-fit: contain;
-}
+      iframe {
+        border-radius: 10px;
+      }
     </style>
-  <script src="https://cdn.jsdelivr.net/npm/html2canvas-pro"></script></head>
+  </head>
+
   <body>
-    <div id="root">
-      <header>
-        <div class="logo">Rz.TravelLombok</div>
-        <nav>
-          <ul>
-            <li><a href="#">Beranda</a></li>
-            <li><a href="/destinasi">Destinasi</a></li>
-            <li><a href="/paket">Paket</a></li>
-            <li><a href="/kontak">Kontak</a></li>
-          </ul>
-        </nav>
-      </header>
-      <section class="hero">
+    <header>
+      <div class="logo">Rz.TravelLombok</div>
+      <nav>
+        <ul>
+          <li><a href="#">Beranda</a></li>
+          <li><a href="#destinasi">Destinasi</a></li>
+          <li><a href="#paket">Paket</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- HERO SECTION DENGAN VIDEO -->
+    <section class="hero">
+      <video autoplay muted loop playsinline preload="none" class="bg-video">
+        <source src="images/Lombok NTB.mp4" type="video/mp4" />
+        Browser kamu tidak mendukung video tag.
+      </video>
+      <div class="overlay"></div>
+
+      <div class="hero-content">
         <h1>Jelajahi Keindahan Lombok</h1>
         <p>
-          Surga tropis yang tersembunyi. Nikmati pantai pasir putih, pegunungan megah, dan budaya yang kaya bersama kami.
+          Surga tropis yang tersembunyi. Nikmati pantai pasir putih, pegunungan
+          megah, dan budaya yang kaya bersama kami.
         </p>
-        <a href="/destinasi" class="btn">Mulai Petualangan</a>
-      </section>
-      <section id="destinasi" class="section">
-        <h2 class="section-title">Destinasi Populer</h2>
-        <div class="destinations-grid">
-          <div class="card">
-            <img src="images/gilitrawangan.png" />
-            <div class="card-content">
-              <h3 class="card-title">Gili Trawangan</h3>
-              <p class="card-desc">
-                Nikmati pesta pantai, diving, dan sunset yang memukau di pulau bebas kendaraan bermotor ini.
-              </p>
-            </div>
-          </div>
-          <div class="card">
-            <img src="images/Rinjanilombok.png" />
-            <div class="card-content">
-              <h3 class="card-title">Gunung Rinjani</h3>
-              <p class="card-desc">
-                Tantang diri Anda mendaki gunung berapi tertinggi kedua di Indonesia dengan pemandangan Danau Segara Anak.
-              </p>
-            </div>
-          </div>
-          <div class="card">
-            <img src="images/pantai-kuta-mandalika.png" />
-            <div class="card-content">
-              <h3 class="card-title">Kuta Mandalika</h3>
-              <p class="card-desc">
-                Kawasan wisata super prioritas dengan sirkuit internasional dan pantai berpasir merica yang unik.
-              </p>
-            </div>
-          </div>
-          <div class="card">
-            <img src="images/SukuSasakdiDesaSadeLombok.png" />
-            <div class="card-content">
-              <h3 class="card-title">Desa Sade</h3>
-              <p class="card-desc">
-                Desa adat Suku Sasak yang mempertahankan tradisi, arsitektur rumah khas, dan kerajinan tenun tradisional.
-              </p>
-            </div>
-          </div>
-          <div class="card">
-            <img src="images/Pantai pink.png" />
-            <div class="card-content">
-              <h3 class="card-title">Pantai Pink</h3>
-              <p class="card-desc">
-                Keunikan pantai dengan pasir berwarna merah muda yang langka dan air laut yang jernih untuk snorkeling.
-              </p>
-            </div>
-          </div>
-          <div class="card">
-            <img src="images/Air Terjun Sendang Gile.jpg" />
-            <div class="card-content">
-              <h3 class="card-title">Air Terjun Sendang Gile</h3>
-              <p class="card-desc">
-                Rasakan kesegaran air terjun di kaki Gunung Rinjani yang dikelilingi hutan hujan tropis yang asri.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <a href="https://wa.me/6285955053407" class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Chat WhatsApp">
-        <svg viewBox="0 0 32 32" class="wa-icon">
-          <path d="M19.11 17.205c-.372-0.108-3.144-1.543-3.607-1.728-.461-0.185-0.78-0.27-1.096 0.203-.319 0.474-1.229 1.544-1.511 1.859-.28 0.315-0.564 0.353-0.934 0.171-.371-0.181-1.573-0.58-2.996-1.849-1.107-0.988-1.854-2.208-2.072-2.583-.217-0.374-0.023-0.575 0.163-0.761 0.168-0.167 0.372-0.435 0.559-0.653 0.186-0.218 0.248-0.373 0.372-0.617 0.124-0.246 0.062-0.465-0.031-0.652-.093-0.186-0.869-2.094-1.191-2.868-.31-0.752-0.627-0.65-0.899-0.662-.254-0.011-0.546-0.013-0.838-0.013-.292 0-0.765 0.109-1.166 0.543-.4 0.435-1.53 1.495-1.53 3.647 0 2.152 1.567 4.231 1.785 4.522 0.218 0.291 3.085 4.709 7.474 6.602 2.944 1.269 3.545 1.016 4.167 0.955 0.622-0.060 1.968-0.806 2.248-1.583 0.28-0.777 0.28-1.444 0.194-1.583-.085-0.139-0.311-0.223-0.683-0.409zM15.751 28.809c-2.32 0-4.594-0.625-6.587-1.808l-0.472-0.28-4.896 1.284 1.306-4.773-0.307-0.488c-1.305-2.079-1.994-4.512-1.994-6.995 0-7.18 5.842-13.022 13.022-13.022 3.479 0 6.75 1.355 9.21 3.816 2.459 2.46 3.814 5.731 3.814 9.21 0 7.182-5.842 13.024-13.024 13.024z"></path>
-        </svg>
-      </a>
-    </div>
-    <section class="footer-info">
-      <div class="footer-box">
-      <h3>Hubungi &amp; Temukan Kami</h3>
-      <p><img src="icon/icons8-location-24.png"> Jl. Raya Kuta, Kec. Pujut, Kab. Lombok Tengah, NTB</p>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d246.37215278129062!2d116.27475341748628!3d-8.883827719368622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcda8356f51e4ab%3A0x86e5b84521b91e7f!2sJl.%20Raya%20Kuta%2C%20Kuta%2C%20Kec.%20Pujut%2C%20Kabupaten%20Lombok%20Tengah%2C%20Nusa%20Tenggara%20Bar.%2C%20Indonesia!5e0!3m2!1sid!2skh!4v1765985062658!5m2!1sid!2skh" width="400" height="180" style="border-radius:10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <a href="#destinasi" class="btn">Mulai Petualangan</a>
       </div>
     </section>
-    <script type="module" src="/index.tsx"></script>
-    <script
-      type="module"
-      onerror="console.warn('Failed to load the app. Try reloading it.')"
-    >import '/index';
-    </script>
+
+    <!-- DESTINASI -->
+    <section id="destinasi" class="section">
+      <h2 class="section-title">Destinasi Populer</h2>
+      <div class="destinations-grid">
+        <div class="card">
+          <img src="images/gilitrawangan.png" />
+          <div class="card-content">
+            <h3 class="card-title">Gili Trawangan</h3>
+            <p class="card-desc">
+              Nikmati pesta pantai, diving, dan sunset yang memukau di pulau
+              bebas kendaraan bermotor ini.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="images/Rinjanilombok.png" />
+          <div class="card-content">
+            <h3 class="card-title">Gunung Rinjani</h3>
+            <p class="card-desc">
+              Tantang diri Anda mendaki gunung berapi tertinggi kedua di
+              Indonesia dengan pemandangan Danau Segara Anak.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="images/pantai-kuta-mandalika.png" />
+          <div class="card-content">
+            <h3 class="card-title">Kuta Mandalika</h3>
+            <p class="card-desc">
+              Kawasan wisata super prioritas dengan sirkuit internasional dan
+              pantai berpasir merica yang unik.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="images/SukuSasakdiDesaSadeLombok.png" />
+          <div class="card-content">
+            <h3 class="card-title">Desa Sade</h3>
+            <p class="card-desc">
+              Desa adat Suku Sasak yang mempertahankan tradisi, arsitektur rumah
+              khas, dan kerajinan tenun tradisional.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="images/Pantai pink.png" />
+          <div class="card-content">
+            <h3 class="card-title">Pantai Pink</h3>
+            <p class="card-desc">
+              Keunikan pantai dengan pasir berwarna merah muda yang langka dan
+              air laut yang jernih untuk snorkeling.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="images/Air Terjun Sendang Gile.jpg" />
+          <div class="card-content">
+            <h3 class="card-title">Air Terjun Sendang Gile</h3>
+            <p class="card-desc">
+              Rasakan kesegaran air terjun di kaki Gunung Rinjani yang
+              dikelilingi hutan hujan tropis yang asri.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOMBOL WHATSAPP -->
+    <a
+      href="https://wa.me/6285955053407"
+      class="wa-float"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat WhatsApp"
+    >
+      <svg viewBox="0 0 32 32" class="wa-icon">
+        <path
+          d="M19.11 17.205c-.372-0.108-3.144-1.543-3.607-1.728-.461-0.185-0.78-0.27-1.096 0.203-.319 0.474-1.229 1.544-1.511 1.859-.28 0.315-0.564 0.353-0.934 0.171-.371-0.181-1.573-0.58-2.996-1.849-1.107-0.988-1.854-2.208-2.072-2.583-.217-0.374-0.023-0.575 0.163-0.761 0.168-0.167 0.372-0.435 0.559-0.653 0.186-0.218 0.248-0.373 0.372-0.617 0.124-0.246 0.062-0.465-0.031-0.652-.093-0.186-0.869-2.094-1.191-2.868-.31-0.752-0.627-0.65-0.899-0.662-.254-0.011-0.546-0.013-0.838-0.013-.292 0-0.765 0.109-1.166 0.543-.4 0.435-1.53 1.495-1.53 3.647 0 2.152 1.567 4.231 1.785 4.522 0.218 0.291 3.085 4.709 7.474 6.602 2.944 1.269 3.545 1.016 4.167 0.955 0.622-0.060 1.968-0.806 2.248-1.583 0.28-0.777 0.28-1.444 0.194-1.583-.085-0.139-0.311-0.223-0.683-0.409zM15.751 28.809c-2.32 0-4.594-0.625-6.587-1.808l-0.472-0.28-4.896 1.284 1.306-4.773-0.307-0.488c-1.305-2.079-1.994-4.512-1.994-6.995 0-7.18 5.842-13.022 13.022-13.022 3.479 0 6.75 1.355 9.21 3.816 2.459 2.46 3.814 5.731 3.814 9.21 0 7.182-5.842 13.024-13.024 13.024z"
+        ></path>
+      </svg>
+    </a>
+
+    <!-- FOOTER INFO -->
+    <section class="footer-info">
+      <div class="footer-box">
+        <h3>Hubungi & Temukan Kami</h3>
+        <p>
+          📍 Jl. Raya Kuta, Kec. Pujut, Kab. Lombok Tengah, NTB
+        </p>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d246.37215278129062!2d116.27475341748628!3d-8.883827719368622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcda8356f51e4ab%3A0x86e5b84521b91e7f!2sJl.%20Raya%20Kuta%2C%20Kuta%2C%20Kec.%20Pujut%2C%20Kabupaten%20Lombok%20Tengah%2C%20Nusa%20Tenggara%20Bar.%2C%20Indonesia!5e0!3m2!1sid!2skh!4v1765985062658!5m2!1sid!2skh"
+          width="400"
+          height="180"
+          style="border-radius: 10px"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </section>
   </body>
 </html>
