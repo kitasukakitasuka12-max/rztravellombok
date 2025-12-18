@@ -22,6 +22,7 @@
         color: #000;
         line-height: 1.6;
         background-color: #fff;
+        overflow-x: hidden; /* Mencegah scroll horizontal */
       }
 
       a {
@@ -30,7 +31,7 @@
       }
 
       header {
-        background-color: #f3f3f387;
+        background-color: #f3f3f3;
         padding: 1rem 5%;
         display: flex;
         justify-content: space-between;
@@ -41,18 +42,11 @@
         z-index: 1000;
       }
 
-      .logo {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: #fff;
-      }
-
       .logo img {
-  height: 60px; /* ubah sesuai ukuran logo kamu */
-  width: auto;
-  display: block;
-}
-
+        height: 50px; /* Ukuran lebih proporsional */
+        width: auto;
+        display: block;
+      }
 
       nav ul {
         display: flex;
@@ -63,18 +57,17 @@
       nav a {
         font-weight: 500;
         transition: color 0.3s;
+        font-size: 0.95rem;
       }
 
       nav a:hover {
-        color: #fff;
+        color: #008080;
       }
 
-      /* ===========================
-         HERO DENGAN VIDEO BACKGROUND
-         =========================== */
+      /* HERO SECTION */
       .hero {
         position: relative;
-        height: 80vh;
+        height: 70vh; /* Sedikit lebih pendek di mobile agar nyaman */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -88,7 +81,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 102%;
+        height: 100%;
         object-fit: cover;
         z-index: -2;
       }
@@ -99,27 +92,25 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(
-          rgba(0, 0, 0, 0.3),
-          rgba(0, 0, 0, 0.3)
-        );
+        background: rgba(0, 0, 0, 0.4);
         z-index: -1;
       }
 
       .hero-content {
         position: relative;
         z-index: 1;
-        padding: 0 1rem;
+        padding: 0 1.5rem;
       }
 
       .hero h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
         margin-bottom: 1rem;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        line-height: 1.2;
       }
 
       .hero p {
-        font-size: 1.2rem;
+        font-size: 1rem;
         margin-bottom: 2rem;
         max-width: 600px;
       }
@@ -127,46 +118,36 @@
       .btn {
         background-color: #008080;
         color: white;
-        padding: 0.8rem 2rem;
+        padding: 0.8rem 1.8rem;
         border-radius: 50px;
         font-weight: 600;
         transition: background 0.3s;
+        display: inline-block;
       }
 
-      .btn:hover {
-        background-color: #006666;
-      }
-
-      /* ===========================
-         SECTION DESTINASI
-         =========================== */
+      /* SECTION DESTINASI */
       .section {
-        padding: 4rem 5%;
+        padding: 3rem 5%;
       }
 
       .section-title {
         text-align: center;
-        font-size: 2rem;
-        margin-bottom: 3rem;
+        font-size: 1.8rem;
+        margin-bottom: 2.5rem;
         color: #222;
       }
 
       .destinations-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
       }
 
       .card {
         background: white;
-        border-radius: 10px;
+        border-radius: 12px;
         overflow: hidden;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s;
-      }
-
-      .card:hover {
-        transform: translateY(-5px);
       }
 
       .card img {
@@ -176,96 +157,126 @@
       }
 
       .card-content {
-        padding: 1.5rem;
+        padding: 1.2rem;
       }
 
       .card-title {
-        font-size: 1.25rem;
+        font-size: 1.2rem;
         margin-bottom: 0.5rem;
         color: #008080;
       }
 
-      .card-desc {
-        font-size: 0.9rem;
-        color: #666;
-        margin-bottom: 1rem;
-      }
-
-      /* ===========================
-         FOOTER
-         =========================== */
-      footer {
-        background-color: #222;
-        color: white;
-        text-align: center;
-        padding: 2rem;
-        margin-top: auto;
-      }
-
-      /* ===========================
-         FLOATING WHATSAPP BUTTON
-         =========================== */
+      /* FLOATING WHATSAPP */
       .wa-float {
         position: fixed;
-        width: 60px;
-        height: 60px;
-        bottom: 40px;
-        right: 40px;
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
         background-color: #25d366;
         color: #fff;
         border-radius: 50%;
-        text-align: center;
-        box-shadow: 2px 2px 3px #999;
-        z-index: 100;
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: all 0.3s ease-in-out;
-      }
-
-      .wa-float:hover {
-        background-color: #128c7e;
-        transform: scale(1.1);
+        box-shadow: 2px 5px 15px rgba(0,0,0,0.2);
+        z-index: 2000;
       }
 
       .wa-icon {
         width: 30px;
         height: 30px;
-        fill: black;
+        fill: white;
       }
 
-      /* ===========================
-         FOOTER INFO
-         =========================== */
+      /* FOOTER INFO */
       .footer-info {
         background-color: #007a8c;
         color: white;
-        padding: 3rem 2%;
-        display: flex;
-        justify-content: center;
-      }
-
-      .footer-box {
-        max-width: 500px;
+        padding: 3rem 5%;
+        text-align: center;
       }
 
       .footer-box h3 {
         margin-bottom: 1rem;
-        font-size: 1.1rem;
         border-bottom: 2px solid #00bfa5;
         display: inline-block;
-        padding-bottom: 0.1rem;
+        padding-bottom: 0.3rem;
       }
 
       .footer-box p {
-        color: #f0f0f0;
-        font-size: 15px;
-        line-height: 1.6;
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
+        font-size: 0.9rem;
+      }
+
+      .map-container {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
       }
 
       iframe {
+        width: 100%; /* Agar mengikuti lebar layar HP */
+        height: 250px;
+        border: 0;
         border-radius: 10px;
+      }
+
+      /* ==========================================
+         MEDIA QUERIES (UNTUK TAMPILAN HP)
+         ========================================== */
+      
+      @media (max-width: 768px) {
+        header {
+          flex-direction: column; /* Logo di atas, menu di bawah */
+          padding: 1rem;
+        }
+
+        nav {
+          margin-top: 10px;
+        }
+
+        nav ul {
+          gap: 1rem; /* Jarak menu lebih rapat di HP */
+        }
+
+        nav a {
+          font-size: 0.85rem;
+        }
+
+        .hero {
+          height: 60vh;
+        }
+
+        .hero h1 {
+          font-size: 1.8rem; /* Ukuran teks judul dikecilkan */
+        }
+
+        .hero p {
+          font-size: 0.9rem;
+        }
+
+        .section-title {
+          font-size: 1.5rem;
+        }
+        
+        .wa-float {
+          width: 50px;
+          height: 50px;
+          bottom: 15px;
+          right: 15px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        /* Untuk HP yang sangat kecil */
+        .hero h1 {
+          font-size: 1.6rem;
+        }
+        
+        .destinations-grid {
+          grid-template-columns: 1fr; /* Satu kolom saja agar gambar besar */
+        }
       }
     </style>
   </head>
@@ -273,8 +284,8 @@
   <body>
     <header>
       <div class="logo">
-    <img src="icon/Screenshot_1__1_-removebg-preview.png" alt="Rz.TravelLombok Logo" />
-    </div>
+        <img src="icon/Screenshot_1__1_-removebg-preview.png" alt="Logo" />
+      </div>
       <nav>
         <ul>
           <li><a href="#">Beranda</a></li>
@@ -285,20 +296,14 @@
       </nav>
     </header>
 
-    <!-- HERO SECTION DENGAN VIDEO -->
     <section class="hero">
-      <video autoplay muted loop playsinline preload="none" class="bg-video">
+      <video autoplay muted loop playsinline class="bg-video">
         <source src="images/Lombok NTB.mp4" type="video/mp4" />
-        Browser kamu tidak mendukung video tag.
       </video>
       <div class="overlay"></div>
-
       <div class="hero-content">
         <h1>Jelajahi Keindahan Lombok</h1>
-        <p>
-          Surga tropis yang tersembunyi. Nikmati pantai pasir putih, pegunungan
-          megah, dan budaya yang kaya bersama kami.
-        </p>
+        <p>Surga tropis yang tersembunyi. Nikmati pantai pasir putih dan budaya yang kaya bersama kami.</p>
         <a href="#destinasi" class="btn">Mulai Petualangan</a>
       </div>
     </section>
@@ -375,37 +380,22 @@
       </div>
     </section>
 
-    <!-- TOMBOL WHATSAPP -->
-    <a
-      href="https://wa.me/6285955053407"
-      class="wa-float"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Chat WhatsApp"
-    >
+    <a href="https://wa.me/6285955053407" class="wa-float" target="_blank" rel="noopener">
       <svg viewBox="0 0 32 32" class="wa-icon">
-        <path
-          d="M19.11 17.205c-.372-0.108-3.144-1.543-3.607-1.728-.461-0.185-0.78-0.27-1.096 0.203-.319 0.474-1.229 1.544-1.511 1.859-.28 0.315-0.564 0.353-0.934 0.171-.371-0.181-1.573-0.58-2.996-1.849-1.107-0.988-1.854-2.208-2.072-2.583-.217-0.374-0.023-0.575 0.163-0.761 0.168-0.167 0.372-0.435 0.559-0.653 0.186-0.218 0.248-0.373 0.372-0.617 0.124-0.246 0.062-0.465-0.031-0.652-.093-0.186-0.869-2.094-1.191-2.868-.31-0.752-0.627-0.65-0.899-0.662-.254-0.011-0.546-0.013-0.838-0.013-.292 0-0.765 0.109-1.166 0.543-.4 0.435-1.53 1.495-1.53 3.647 0 2.152 1.567 4.231 1.785 4.522 0.218 0.291 3.085 4.709 7.474 6.602 2.944 1.269 3.545 1.016 4.167 0.955 0.622-0.060 1.968-0.806 2.248-1.583 0.28-0.777 0.28-1.444 0.194-1.583-.085-0.139-0.311-0.223-0.683-0.409zM15.751 28.809c-2.32 0-4.594-0.625-6.587-1.808l-0.472-0.28-4.896 1.284 1.306-4.773-0.307-0.488c-1.305-2.079-1.994-4.512-1.994-6.995 0-7.18 5.842-13.022 13.022-13.022 3.479 0 6.75 1.355 9.21 3.816 2.459 2.46 3.814 5.731 3.814 9.21 0 7.182-5.842 13.024-13.024 13.024z"
-        ></path>
+        <path d="M19.11 17.205c-.372-0.108-3.144-1.543-3.607-1.728-.461-0.185-0.78-0.27-1.096 0.203-.319 0.474-1.229 1.544-1.511 1.859-.28 0.315-0.564 0.353-0.934 0.171-.371-0.181-1.573-0.58-2.996-1.849-1.107-0.988-1.854-2.208-2.072-2.583-.217-0.374-0.023-0.575 0.163-0.761 0.168-0.167 0.372-0.435 0.559-0.653 0.186-0.218 0.248-0.373 0.372-0.617 0.124-0.246 0.062-0.465-0.031-0.652-.093-0.186-0.869-2.094-1.191-2.868-.31-0.752-0.627-0.65-0.899-0.662-.254-0.011-0.546-0.013-0.838-0.013-.292 0-0.765 0.109-1.166 0.543-.4 0.435-1.53 1.495-1.53 3.647 0 2.152 1.567 4.231 1.785 4.522 0.218 0.291 3.085 4.709 7.474 6.602 2.944 1.269 3.545 1.016 4.167 0.955 0.622-0.060 1.968-0.806 2.248-1.583 0.28-0.777 0.28-1.444 0.194-1.583-.085-0.139-0.311-0.223-0.683-0.409zM15.751 28.809c-2.32 0-4.594-0.625-6.587-1.808l-0.472-0.28-4.896 1.284 1.306-4.773-0.307-0.488c-1.305-2.079-1.994-4.512-1.994-6.995 0-7.18 5.842-13.022 13.022-13.022 3.479 0 6.75 1.355 9.21 3.816 2.459 2.46 3.814 5.731 3.814 9.21 0 7.182-5.842 13.024-13.024 13.024z"></path>
       </svg>
     </a>
 
-    <!-- FOOTER INFO -->
-    <section class="footer-info">
+    <section class="footer-info" id="kontak">
       <div class="footer-box">
         <h3>Hubungi & Temukan Kami</h3>
-        <p>
-          📍 Jl. Raya Kuta, Kec. Pujut, Kab. Lombok Tengah, NTB
-        </p>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d246.37215278129062!2d116.27475341748628!3d-8.883827719368622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcda8356f51e4ab%3A0x86e5b84521b91e7f!2sJl.%20Raya%20Kuta%2C%20Kuta%2C%20Kec.%20Pujut%2C%20Kabupaten%20Lombok%20Tengah%2C%20Nusa%20Tenggara%20Bar.%2C%20Indonesia!5e0!3m2!1sid!2skh!4v1765985062658!5m2!1sid!2skh"
-          width="400"
-          height="180"
-          style="border-radius: 10px"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
+        <p>📍 Jl. Raya Kuta, Kec. Pujut, Kab. Lombok Tengah, NTB</p>
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d246.37215278129062!2d116.27475341748628!3d-8.883827719368622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcda8356f51e4ab%3A0x86e5b84521b91e7f!2sJl.%20Raya%20Kuta%2C%20Kuta%2C%20Kec.%20Pujut%2C%20Kabupaten%20Lombok%20Tengah%2C%20Nusa%20Tenggara%20Bar.%2C%20Indonesia!5e0!3m2!1sid!2skh!4v1765985062658!5m2!1sid!2skh"
+            loading="lazy"
+          ></iframe>
+        </div>
       </div>
     </section>
   </body>
