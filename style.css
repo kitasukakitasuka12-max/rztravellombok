@@ -33,7 +33,7 @@ h1, h2, h3, h4, h5, .navbar-brand {
 
 .navbar-brand {
     font-weight: bold;
-    color: var(--accent-color) !important;
+    color: #ff881b !important;
     font-size: 1.5rem;
 }
 
@@ -54,10 +54,10 @@ h1, h2, h3, h4, h5, .navbar-brand {
 
 /* Hero Section */
 .hero-section {
-    background: linear-gradient(to bottom, rgba(5, 23, 14, 0.3), var(--main-bg)), url('https://images.unsplash.com/photo-1573790387438-4da905039392?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background: linear-gradient(to bottom, rgba(5, 23, 14, 0.3), var(--main-bg)), url('images/lombok.png');
     background-size: cover;
     background-position: center;
-    height: 80vh;
+    height: 66vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -66,9 +66,9 @@ h1, h2, h3, h4, h5, .navbar-brand {
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    text-shadow: -1px 1px 4px rgb(227 100 20);
 }
 
 .btn-custom {
