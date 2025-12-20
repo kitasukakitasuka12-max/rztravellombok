@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - RZ Travel Lombok</title>
+    <link rel="icon" type="image/png" href="icon/rz.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-umbrella-beach"></i> RZ Travel Lombok</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="destinasi.html">Destinasi</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="kontak.html">Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="container mt-5 pt-5 pb-5">
+        <h2 class="text-center mb-5 mt-4">Hubungi Kami</h2>
+        
+<div class="row shadow-lg p-4 rounded bg-dark-custom">
+            <!-- Informasi Kontak -->
+            <div class="col-md-5 mb-4 border-end">
+                <h4>Informasi Kantor</h4>
+                <p class="text-muted mb-4">Jangan ragu untuk menghubungi kami melalui saluran berikut:</p>
+                
+                <div class="mb-3">
+                    <i class="fas fa-map-marker-alt text-warning me-2"></i>
+                    <span>Jl. Raya Senggigi No. 88, Lombok Barat, NTB</span>
+                </div>
+                <div class="mb-3">
+                    <i class="fas fa-phone text-warning me-2"></i>
+                    <span>+62 812 3456 7890</span>
+                </div>
+                <div class="mb-3">
+                    <i class="fas fa-envelope text-warning me-2"></i>
+                    <span>info@rztravellombok.com</span>
+                </div>
+
+                <div class="mt-4">
+                    <!-- Embed Map Placeholder (Mataram) -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126214.3768225575!2d116.06649724133499!3d-8.58376518776387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdbf5c2462a5ed%3A0x3030bfbcaf77460!2sMataram%2C%20City%20of%20Mataram%2C%20West%20Nusa%20Tenggara!5e0!3m2!1sen!2sid!4v1692257600000!5m2!1sen!2sid" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <!-- Form Kontak -->
+            <div class="col-md-7">
+                <h4>Kirim Pesan</h4>
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">Nama Lengkap</label>
+                        <input type="text" class="form-control" placeholder="Masukkan nama Anda">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" placeholder="nama@email.com">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Subjek</label>
+                        <input type="text" class="form-control" placeholder="Misal: Booking Paket Gili">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Pesan</label>
+                        <textarea class="form-control" rows="5" placeholder="Tuliskan detail pertanyaan atau pesanan Anda..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-custom px-4">Kirim Pesan</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Chat Widget -->
+    <div class="chat-widget">
+        <div class="chat-box" id="chatBox">
+            <div class="chat-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <span>CS RZ Travel</span>
+                    <button class="btn-close btn-close-white" onclick="toggleChat()"></button>
+                </div>
+            </div>
+            <div class="chat-body">
+                <p class="small text-muted">Butuh bantuan cepat? Hubungi kami via WhatsApp.</p>
+                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-success w-100">
+                    <i class="fab fa-whatsapp"></i> Chat via WhatsApp
+                </a>
+            </div>
+        </div>
+        <button class="chat-button" onclick="toggleChat()">
+            <i class="fas fa-comments"></i>
+        </button>
+    </div>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2023 RZ Travel Lombok. All Rights Reserved.</p>
+            <div>
+                <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="me-3"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
