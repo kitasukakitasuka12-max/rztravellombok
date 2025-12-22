@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset 
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- Beranda -->
+  <url>
+    <loc>https://rztravellombok.vercel.app/</loc>
+    <lastmod>2025-12-22</lastmod>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://rztravellombok.vercel.app/icon/rz-travel-lombok-logo.png</image:loc>
+      <image:caption>Logo RZ Travel Lombok</image:caption>
+      <image:title>RZ Travel Lombok</image:title>
+    </image:image>
+  </url>
+  <!-- Halaman Destinasi -->
+  <url>
+    <loc>https://rztravellombok.vercel.app/destinasi</loc>
+    <lastmod>2025-12-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <!-- Halaman Kontak -->
+  <url>
+    <loc>https://rztravellombok.vercel.app/kontak</loc>
+    <lastmod>2025-12-22</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <!-- Gambar utama -->
+  <url>
+    <loc>https://rztravellombok.vercel.app/</loc>
+    <image:image>
+      <image:loc>https://rztravellombok.vercel.app/icon/Screenshot_1__1_-removebg-preview.png</image:loc>
+      <image:caption>Logo utama RZ Travel Lombok</image:caption>
+      <image:title>RZ Travel Lombok Logo</image:title>
+    </image:image>
+  </url>
+
+</urlset>
